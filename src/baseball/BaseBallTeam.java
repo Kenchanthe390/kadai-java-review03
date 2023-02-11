@@ -1,6 +1,6 @@
 package baseball;
 
-public class BaseballTeam {
+public class BaseBallTeam {
 
     //フィールド
     private String name;
@@ -8,34 +8,38 @@ public class BaseballTeam {
     private int lose;
     private int draw;
 
-    //勝率を求めるメッソドgatRate
+    //勝率を求めるメソッド（gatRate）
     public double getRate() {
-        double rate = (double)this.win / (double)(this.win + this.lose);
+        double rate = (double)win / (double)(win + lose);
         return rate;
     }
 
-    //各チームの実績を報告するメソッドreport
+    //各チームの成績を報告するメソッド（report）
     public void report() {
-        System.out.println(this.name + "の2022年の成績は" + this.win + "勝" + this.lose + "敗" + this.draw + "分、勝率は" + getRate() + "です。");
+        System.out.println(name + "の2022年の成績は" + win + "勝" + lose + "敗" + draw + "分、勝率は" + getRate() + "です。");
     }
 
     //引数なしコンストラクタ
-    public static void team() {
+    public BaseBallTeam() {
+        name = "未設定";
+        win = 0;
+        lose = 0;
+        draw = 0;
     }
 
     //引数ありコンストラクタ
-    public void team(String name, int win, int lose, int draw) {
+    public BaseBallTeam(String name, int win, int lose, int draw) {
         this.name = name;
         this.win = win;
         this.lose = lose;
         this.draw = draw;
     }
 
-    /*
-    //フィールドに値がセット、その値をゲットできるようにする
+    //フィールドに値の設定と取得ができるようにする
     public void setName(String name) {
         this.name = name;
     }
+
     public String getName() {
         return name;
     }
@@ -63,6 +67,5 @@ public class BaseballTeam {
     public int getDraw() {
         return draw;
     }
-    */
 
 }
